@@ -1,0 +1,13 @@
+<div class="alert alert-primary alert-dismissible fade show" [class.alert-success]="successType === notification.type"
+     [class.alert-danger]="failureType === notification.type"
+     role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="handleCloseClick()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>
+    {{ notification.type === successType ? "Success" : "Failure" }}
+  </strong>
+  <div>
+    {{ notification.content }}
+  </div>
+</div>

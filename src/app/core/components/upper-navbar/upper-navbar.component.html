@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark upper-navbar p-0">
+  <div class="container">
+    <div class="col-md-12">
+      <div class="nav navbar-nav float-right">
+        <a *bsAuthenticated="false" class="nav-item nav-link p-1" [routerLink]="['auth', 'login']"
+           routerLinkActive="active">
+          Sign in
+        </a>
+        <a *bsAuthenticated="false" class="nav-item nav-link p-1" [routerLink]="['auth', 'register']"
+           routerLinkActive="active">
+          Sign up
+        </a>
+        <a *bsAuthenticated="true" class="nav-item nav-link p-1" [routerLink]="['/', 'profile']"
+           routerLinkActive="active">
+          My profile
+        </a>
+        <a *bsHasRole="'ROLE_ADMINISTRATOR'" class="nav-item nav-link p-1" [routerLink]="['dashboard']"
+           routerLinkActive="active">
+          Dashboard
+        </a>
+        <a href="#" *bsAuthenticated="true" class="nav-item nav-link logout-link p-1" (click)="handleLogoutClick()">
+          Sign out
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

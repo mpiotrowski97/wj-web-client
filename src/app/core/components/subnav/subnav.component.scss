@@ -1,0 +1,8 @@
+.subnav {
+  .navbar-nav {
+    a.nav-item:first-child {
+      margin-left: 0;
+      padding-left: 0 !important;
+    }
+  }
+}

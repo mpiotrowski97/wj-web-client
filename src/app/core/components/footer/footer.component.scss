@@ -1,0 +1,18 @@
+.link-section {
+  .nav-link {
+    padding: 10px 0;
+    border-bottom: 1px solid #c6c6c6;
+    font-size: .8rem;
+    color: #343a40;
+    &:last-child {
+      border-bottom: 0;
+    }
+    &:hover {
+      color: #138496;
+    }
+  }
+}
+
+.copyrights {
+  font-size: .9rem;
+}

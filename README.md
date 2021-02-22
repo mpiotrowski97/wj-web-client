@@ -1,1 +1,5 @@
-# wj-web-client
+# Workout journal - aplikacja treningowa
+
+Projekt wykonany w ramach pracy inżynierskiej
+
+

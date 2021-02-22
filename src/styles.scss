@@ -1,0 +1,14 @@
+.form-group-error {
+  color: #dc3545;
+
+  input {
+    border: 1px solid #dc3545;
+  }
+}
+
+
+.link-disabled {
+  color: darkgrey;
+  pointer-events: none;
+  text-decoration: none;
+}
