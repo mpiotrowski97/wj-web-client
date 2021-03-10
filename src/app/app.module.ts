@@ -12,6 +12,7 @@ import {EffectsModule} from '@ngrx/effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import {appEffects, appState} from './app.store';
+import {OAuthModule} from 'angular-oauth2-oidc';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,12 @@ import {appEffects, appState} from './app.store';
     HttpClientXsrfModule,
     StoreModule.forRoot(appState),
     EffectsModule.forRoot(appEffects),
+    OAuthModule.forRoot({
+      resourceServer: {
+        allowedUrls: ['http://localhost:9090/api'],
+        sendAccessToken: true
+      }
+    }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

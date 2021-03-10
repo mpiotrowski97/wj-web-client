@@ -1,22 +1,34 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {Component} from '@angular/core';
+import {NullValidationHandler, OAuthService} from 'angular-oauth2-oidc';
+import {environment} from '../environments/environment';
 import {Observable} from 'rxjs';
-import {InitService} from './core/services/init.service';
 
 @Component({
   selector: 'wj-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   public error$: Observable<boolean>;
 
   constructor(
-    private http: HttpClient,
-    private initService: InitService
+    private oauthService: OAuthService
   ) {
+    this.configureAuthorization();
   }
 
-  ngOnInit(): void {
+  private configureAuthorization(): void {
+    this.oauthService.configure({
+      issuer: environment.oauth.issuer,
+      redirectUri: environment.oauth.redirectUri,
+      clientId: environment.oauth.clientId,
+      scope: 'openid profile email offline_access',
+      responseType: 'code',
+      disableAtHashCheck: true,
+      showDebugInformation: true
+    });
+
+    this.oauthService.tokenValidationHandler = new NullValidationHandler();
+    this.oauthService.loadDiscoveryDocumentAndTryLogin();
   }
 }

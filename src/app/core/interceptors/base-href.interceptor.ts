@@ -6,16 +6,20 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {environment} from '../../../environments/environment';
+import {OAuthService} from 'angular-oauth2-oidc';
 
 @Injectable()
 export class BaseHrefInterceptor implements HttpInterceptor {
+
+  constructor(private oauthService: OAuthService) {
+  }
+
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const requestClone = request.clone({
-      url: `${environment.apiUrl}/${request.url}`,
       withCredentials: true,
       setHeaders: {
         'X-Requested-With': 'XMLHttpRequest',
+        Authorization: 'Bearer ' + this.oauthService.getAccessToken()
       }
     });
 

@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import {OAuthService} from 'angular-oauth2-oidc';
 
 @Component({
   selector: 'wj-header',
@@ -10,14 +9,12 @@ import {Router} from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public cartValue$: Observable<number>;
-
   public searchForm: FormGroup;
 
   constructor(
     private store: Store,
     private formBuilder: FormBuilder,
-    private router: Router
+    private oauthService: OAuthService
   ) {
   }
 
@@ -27,7 +24,7 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  handleSearchClick(): void {
-    this.router.navigate(['/', 'books'], {queryParams: {search: this.searchForm.get('search').value}});
+  handleLoginClick(): void {
+    this.oauthService.initLoginFlow();
   }
 }

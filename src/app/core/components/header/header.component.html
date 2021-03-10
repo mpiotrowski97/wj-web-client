@@ -2,22 +2,15 @@
   <div class="col-md-12">
 
     <div class="container">
-      <a class="navbar-brand" routerLink="">Books Store</a>
+      <a class="navbar-brand" routerLink="">Workout journal</a>
 
       <div class="flex-row d-flex">
-        <div class="nav navbar-nav mr-3" *bsHideInCheckout>
-          <a *bsAuthenticated="true" class="nav-item nav-link" [routerLink]="['checkout', 'cart']"
-             routerLinkActive="active">
+        <div class="nav navbar-nav mr-3">
+          <a class="nav-item nav-link" (click)="handleLoginClick()">
+            Login
           </a>
         </div>
 
-        <form [formGroup]="searchForm" (ngSubmit)="handleSearchClick()" class="search-bar input-group"
-              *bsHideInCheckout>
-          <input type="text" class="form-control" aria-label="Search" formControlName="search">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit" [disabled]="searchForm.invalid">Search</button>
-          </div>
-        </form>
       </div>
     </div>
   </div>
