@@ -1,14 +1,10 @@
-.form-group-error {
-  color: #dc3545;
-
-  input {
-    border: 1px solid #dc3545;
-  }
-}
-
-
-.link-disabled {
-  color: darkgrey;
-  pointer-events: none;
-  text-decoration: none;
-}
+@import 'assets/scss/variable';
+@import 'assets/scss/app';
+@import 'assets/scss/sidebar';
+@import 'assets/scss/pages/pages';
+@import 'assets/scss/icons/font-awesome/css/font-awesome.min.css';
+@import 'assets/scss/widgets/widgets';
+@import 'assets/scss/grid';
+@import 'assets/scss/responsive';
+@import 'assets/css/spinners.css';
+@import 'assets/css/animate.css';

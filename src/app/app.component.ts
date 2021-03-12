@@ -14,7 +14,7 @@ export class AppComponent {
   constructor(
     private oauthService: OAuthService
   ) {
-    this.configureAuthorization();
+    // this.configureAuthorization();
   }
 
   private configureAuthorization(): void {

@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomepageComponent} from './pages/homepage/homepage.component';
-import {MainGuard} from './guards/main.guard';
+import { MainComponent } from './main.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomepageComponent,
-    canActivate: [MainGuard]
+    component: MainComponent
   }
 ];
 
@@ -15,4 +13,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MainRoutingModule { }
+export class MainRoutingModule {
+}
