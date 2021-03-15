@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NbMenuItem } from '@nebular/theme';
 
 @Component({
   selector: 'wj-sidebar',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+
+  items: NbMenuItem[] = [
+    {
+      title: 'Profile',
+      icon: 'person-outline',
+    },
+  ];
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

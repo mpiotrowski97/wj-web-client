@@ -13,6 +13,9 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import {appEffects, appState} from './app.store';
 import {OAuthModule} from 'angular-oauth2-oidc';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NbMenuModule, NbSidebarModule, NbThemeModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,11 @@ import {OAuthModule} from 'angular-oauth2-oidc';
       maxAge: 25,
       logOnly: environment.production,
     }),
+    BrowserAnimationsModule,
+    NbThemeModule.forRoot({ name: 'default' }),
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
+    NbEvaIconsModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: BaseHrefInterceptor, multi: true},

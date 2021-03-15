@@ -1,12 +1,27 @@
-<div id="main-wrapper">
-  <wj-header></wj-header>
-  <wj-sidebar></wj-sidebar>
-  <div class="page-wrapper">
-    <div class="container-fluid">
-      <div class="row page-titles">
-        <wj-breadcrumbs></wj-breadcrumbs>
-      </div>
-    </div>
-    <wj-footer></wj-footer>
-  </div>
-</div>
+<nb-layout>
+
+  <nb-layout-header fixed>
+    <nb-actions>
+      <nb-action icon="menu-2-outline" (click)="onMenuCollapseClick()"></nb-action>
+      <nb-action link="/">
+        <span class="logo">Workout Journal</span>
+      </nb-action>
+    </nb-actions>
+
+    <nb-actions>
+      <nb-action>dsa</nb-action>
+    </nb-actions>
+  </nb-layout-header>
+
+  <nb-sidebar>
+    <wj-sidebar></wj-sidebar>
+  </nb-sidebar>
+
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+    Workout Journal by Michał Piotrowski
+  </nb-layout-footer>
+</nb-layout>

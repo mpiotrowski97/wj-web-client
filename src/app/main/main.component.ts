@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NbMenuItem, NbSidebarService } from '@nebular/theme';
 
 @Component({
   selector: 'wj-main',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sidebarService: NbSidebarService) {
+  }
 
   ngOnInit(): void {
+  }
+
+  onMenuCollapseClick(): void{
+    this.sidebarService.toggle(true, 'left');
   }
 
 }
