@@ -15,6 +15,7 @@ import { SubnavComponent } from './components/subnav/subnav.component';
 import { UpperNavbarComponent } from './components/upper-navbar/upper-navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { NbAlertModule } from '@nebular/theme';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import {ReactiveFormsModule} from '@angular/forms';
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NbAlertModule
   ]
 })
 export class CoreModule {

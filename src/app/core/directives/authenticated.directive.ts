@@ -11,7 +11,7 @@ export class AuthenticatedDirective implements OnInit, OnDestroy {
   private authenticatedSubscription: Subscription;
 
   @Input()
-  private bsAuthenticated;
+  private wjAuthenticated;
 
   constructor(
     private templateRef: TemplateRef<any>,
@@ -30,7 +30,7 @@ export class AuthenticatedDirective implements OnInit, OnDestroy {
     this.authenticatedSubscription = this.store
       .select(isAuthenticatedSelector)
       .pipe(
-        map(isAuthenticated => isAuthenticated && this.bsAuthenticated || !isAuthenticated && !this.bsAuthenticated)
+        map(isAuthenticated => isAuthenticated && this.wjAuthenticated || !isAuthenticated && !this.wjAuthenticated)
       )
       .subscribe((isAuthenticated) => {
         isAuthenticated ? this.viewContainer.createEmbeddedView(this.templateRef) : this.viewContainer.clear();

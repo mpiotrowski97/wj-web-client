@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Category} from '../../models/category';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
-import {categoriesSelector, CoreState} from '../../store/core.reducer';
+import {CoreState} from '../../store/core.reducer';
 
 @Component({
   selector: 'wj-subnav',
@@ -16,6 +16,5 @@ export class SubnavComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.categories$ = this.store.select(categoriesSelector);
   }
 }

@@ -11,7 +11,7 @@ export class HasRoleDirective implements OnInit, OnDestroy {
 
   private rolesSubscription: Subscription;
 
-  @Input('bsHasRole')
+  @Input('wjHasRole')
   private role: string;
 
   constructor(

@@ -1,11 +1,29 @@
-import {createAction, props} from '@ngrx/store';
-import {Category} from '../models/category';
+import { createAction, props } from '@ngrx/store';
+import { Notification } from '../models/notification';
 
 export enum CoreActionsTypes {
-  SET_CATEGORIES = '[Core] Set categories action'
+  ADD_NOTIFICATION_ACTION = '[CORE] Add notification action',
+  ADD_SUCCESS_NOTIFICATION_ACTION = '[CORE] Add success notification action',
+  ADD_FAILURE_NOTIFICATION_ACTION = '[CORE] Add failure notification action',
+  REMOVE_NOTIFICATION = '[CORE] Remove notification action'
 }
 
-export const setCategoriesAction = createAction(
-  CoreActionsTypes.SET_CATEGORIES,
-  props<{ categories: Category[] }>()
+export const addNotificationAction = createAction(
+  CoreActionsTypes.ADD_NOTIFICATION_ACTION,
+  props<{ notification: Notification }>()
+);
+
+export const addSuccessNotificationAction = createAction(
+  CoreActionsTypes.ADD_SUCCESS_NOTIFICATION_ACTION,
+  props<{ content: string }>()
+);
+
+export const addFailureNotificationAction = createAction(
+  CoreActionsTypes.ADD_FAILURE_NOTIFICATION_ACTION,
+  props<{ content: string }>()
+);
+
+export const removeNotificationAction = createAction(
+  CoreActionsTypes.REMOVE_NOTIFICATION,
+  props<{ notification: Notification }>()
 );

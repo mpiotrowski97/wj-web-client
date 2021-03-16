@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Notification} from '../../models/notification';
-import {Store} from '@ngrx/store';
-import {NotificationType} from '../../types/notification-type.enum';
+import { Component, Input, OnInit } from '@angular/core';
+import { Notification } from '../../models/notification';
+import { Store } from '@ngrx/store';
+import { NotificationType } from '../../types/notification-type.enum';
+import { removeNotificationAction } from '../../store/core.actions';
 
 @Component({
   selector: 'wj-notification',
@@ -13,14 +14,11 @@ export class NotificationComponent implements OnInit {
   @Input()
   public notification: Notification;
 
-  public successType = NotificationType.SUCCESS;
-  public failureType = NotificationType.FAILURE;
-
   constructor(private store: Store) {
   }
 
   ngOnInit(): void {
-    setTimeout(() => this.closeNotification(), 3000);
+    setTimeout(() => this.closeNotification(), 5000);
   }
 
   handleCloseClick(): void {
@@ -28,5 +26,6 @@ export class NotificationComponent implements OnInit {
   }
 
   closeNotification(): void {
+    this.store.dispatch(removeNotificationAction({notification: this.notification}));
   }
 }
