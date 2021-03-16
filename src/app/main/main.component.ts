@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NbMenuItem, NbSidebarService } from '@nebular/theme';
+import { NbSidebarService } from '@nebular/theme';
 
 @Component({
   selector: 'wj-main',
@@ -7,6 +7,11 @@ import { NbMenuItem, NbSidebarService } from '@nebular/theme';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
+
+  items = [
+    { title: 'Profile' },
+    { title: 'Logout' },
+  ];
 
   constructor(private sidebarService: NbSidebarService) {
   }

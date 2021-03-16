@@ -13,7 +13,7 @@ export interface CoreState {
 }
 
 const initialState: CoreState = {
-  notifications: [{type: NotificationType.SUCCESS, content: 'dsa'}]
+  notifications: []
 };
 
 export function coreReducer(state: CoreState | undefined, action: Action): CoreState {

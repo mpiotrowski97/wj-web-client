@@ -6,7 +6,7 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { MainComponent } from './main.component';
 import {
   NbActionsModule,
-  NbCardModule,
+  NbCardModule, NbContextMenuModule,
   NbIconModule,
   NbLayoutModule,
   NbMenuModule,
@@ -26,7 +26,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     NbIconModule,
     NbActionsModule,
     NbCardModule,
-    NbUserModule
+    NbUserModule,
+    NbContextMenuModule
   ]
 })
 export class MainModule { }
