@@ -4,7 +4,14 @@ import { CommonModule } from '@angular/common';
 import { MainRoutingModule } from './main-routing.module';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { MainComponent } from './main.component';
-import { NbActionsModule, NbIconModule, NbLayoutModule, NbMenuModule, NbSidebarModule } from '@nebular/theme';
+import {
+  NbActionsModule,
+  NbCardModule,
+  NbIconModule,
+  NbLayoutModule,
+  NbMenuModule,
+  NbSidebarModule, NbUserModule
+} from '@nebular/theme';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
@@ -17,7 +24,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     NbSidebarModule,
     NbMenuModule,
     NbIconModule,
-    NbActionsModule
+    NbActionsModule,
+    NbCardModule,
+    NbUserModule
   ]
 })
 export class MainModule { }

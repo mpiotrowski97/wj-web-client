@@ -14,7 +14,7 @@ import {environment} from '../environments/environment';
 import {appEffects, appState} from './app.store';
 import {OAuthModule} from 'angular-oauth2-oidc';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbMenuModule, NbSidebarModule, NbThemeModule } from '@nebular/theme';
+import { NbAlertModule, NbMenuModule, NbSidebarModule, NbThemeModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 @NgModule({
@@ -40,10 +40,11 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
       logOnly: environment.production,
     }),
     BrowserAnimationsModule,
-    NbThemeModule.forRoot({ name: 'default' }),
+    NbThemeModule.forRoot({name: 'default'}),
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbEvaIconsModule,
+    NbAlertModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: BaseHrefInterceptor, multi: true},

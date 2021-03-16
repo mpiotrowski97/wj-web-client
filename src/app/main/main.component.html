@@ -1,16 +1,20 @@
 <nb-layout>
 
   <nb-layout-header fixed>
-    <nb-actions>
-      <nb-action icon="menu-2-outline" (click)="onMenuCollapseClick()"></nb-action>
-      <nb-action link="/">
-        <span class="logo">Workout Journal</span>
-      </nb-action>
-    </nb-actions>
+    <div class="header">
+      <nb-actions>
+        <nb-action icon="menu-2-outline" (click)="onMenuCollapseClick()"></nb-action>
+        <nb-action link="/">
+          <span class="logo">Workout Journal</span>
+        </nb-action>
+      </nb-actions>
 
-    <nb-actions>
-      <nb-action>dsa</nb-action>
-    </nb-actions>
+      <nb-actions>
+        <nb-action>
+              <nb-user shape="semi-round" name="John Doe"></nb-user>
+        </nb-action>
+      </nb-actions>
+    </div>
   </nb-layout-header>
 
   <nb-sidebar>
