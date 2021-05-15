@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NbSidebarService } from '@nebular/theme';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { applicationContentLoadingSelector } from '../core/store/core.reducer';
 
 @Component({
   selector: 'wj-main',
@@ -8,19 +10,12 @@ import { NbSidebarService } from '@nebular/theme';
 })
 export class MainComponent implements OnInit {
 
-  items = [
-    { title: 'Profile' },
-    { title: 'Logout' },
-  ];
+  public isContentLoading$: Observable<boolean>;
 
-  constructor(private sidebarService: NbSidebarService) {
+  constructor(private store: Store) {
   }
 
   ngOnInit(): void {
+    this.isContentLoading$ = this.store.select(applicationContentLoadingSelector);
   }
-
-  onMenuCollapseClick(): void{
-    this.sidebarService.toggle(true, 'left');
-  }
-
 }

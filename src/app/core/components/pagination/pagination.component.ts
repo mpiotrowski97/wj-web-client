@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Pageable} from '../../models/api-response';
+import {Pageable} from '../../models/api-specification';
 
 @Component({
   selector: 'wj-pagination',

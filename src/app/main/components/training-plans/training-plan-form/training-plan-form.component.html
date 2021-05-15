@@ -1,0 +1,51 @@
+<ng-container *ngIf="(exercises$ | async) as exercises">
+
+  <form class="col-sm-6 offset-sm-3" (submit)="handleFormSubmit()" [formGroup]="trainingPlanForm">
+
+    <h3 class="mt-3 mb-3">
+      {{ formHeader }}
+    </h3>
+
+    <div class="form-group mt-3">
+      <label for="name" class="label"
+             [class.text-danger]="trainingPlanForm.get('name').invalid && trainingPlanForm.get('name').touched">Name
+        <wj-required-label></wj-required-label>
+      </label>
+      <input type="text" id="name" nbInput fullWidth formControlName="name"
+             [class.border-danger]="trainingPlanForm.get('name').invalid && trainingPlanForm.get('name').touched">
+      <div *ngIf="trainingPlanForm.get('name').hasError('required') && trainingPlanForm.get('name').touched"
+           class="mt-2 mb-2">
+        <strong class="text-danger">Please enter a name</strong>
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="description" class="label">Description</label>
+      <textarea nbInput fullWidth aria-label="description" id="description" formControlName="description"></textarea>
+    </div>
+
+    <div class="form-group mt-3" formArrayName="days" *ngFor="let day of trainingPlanForm.get('days')['controls']; index as i">
+      <div [formGroupName]="i">
+        <label [for]="'day-' + i" class="label mb-2">Day {{ i + 1}}
+          <button type="button" nbButton size="tiny" status="danger" (click)="handleRemoveDayClick(i)"
+                  *ngIf="0 !== i">
+            <nb-icon icon="trash-2-outline"></nb-icon>
+          </button>
+        </label>
+        <nb-select fullWidth placeholder="Select Exercises" [id]="'day-' + i" multiple [formControlName]="'exercisesIds'">
+          <nb-option *ngFor="let exercise of exercises" [value]="exercise.id">
+            {{ exercise.name }}
+          </nb-option>
+        </nb-select>
+      </div>
+    </div>
+
+    <div class="form-group mt-3 ">
+      <button type="button" nbButton status="info" (click)="handleAddDayClick()">Add day</button>
+
+      <button type="submit" nbButton [nbSpinner]="isFormProcessing" nbSpinnerStatus="basic" status="success"
+              [disabled]="trainingPlanForm.invalid">Save
+      </button>
+    </div>
+  </form>
+</ng-container>

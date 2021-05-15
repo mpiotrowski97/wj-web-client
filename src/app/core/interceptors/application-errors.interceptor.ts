@@ -1,13 +1,14 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
   HttpInterceptor, HttpErrorResponse
 } from '@angular/common/http';
-import {Observable, throwError} from 'rxjs';
-import {catchError} from 'rxjs/operators';
-import {Store} from '@ngrx/store';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { setApplicationErrorAction } from '../store/core.actions';
 
 @Injectable()
 export class ApplicationErrorsInterceptor implements HttpInterceptor {
@@ -20,9 +21,8 @@ export class ApplicationErrorsInterceptor implements HttpInterceptor {
       .handle(request)
       .pipe(
         catchError((error: HttpErrorResponse) => {
-          if (401 === error.status && error.url.includes(`login`)) {
-          } else if (422 !== error.status) {
-          } else {
+          if (422 !== error.status) {
+            this.store.dispatch(setApplicationErrorAction());
           }
 
           return throwError(error);

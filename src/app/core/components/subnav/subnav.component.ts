@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Category} from '../../models/category';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {CoreState} from '../../store/core.reducer';
@@ -10,7 +9,7 @@ import {CoreState} from '../../store/core.reducer';
   styleUrls: ['./subnav.component.scss']
 })
 export class SubnavComponent implements OnInit {
-  public categories$: Observable<Category[]>;
+  public categories$: Observable<any[]>;
 
   constructor(private store: Store<{core: CoreState}>) {
   }

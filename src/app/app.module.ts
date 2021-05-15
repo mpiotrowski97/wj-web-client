@@ -16,6 +16,7 @@ import {OAuthModule} from 'angular-oauth2-oidc';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbAlertModule, NbMenuModule, NbSidebarModule, NbThemeModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import {HighchartsChartModule} from "highcharts-angular";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     CoreModule,
     HttpClientModule,
     HttpClientXsrfModule,
+    HighchartsChartModule,
     StoreModule.forRoot(appState),
     EffectsModule.forRoot(appEffects),
     OAuthModule.forRoot({

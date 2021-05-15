@@ -1,20 +1,7 @@
 <nb-layout>
 
   <nb-layout-header fixed>
-    <div class="header">
-      <nb-actions>
-        <nb-action icon="menu-2-outline" (click)="onMenuCollapseClick()"></nb-action>
-        <nb-action link="/">
-          <span class="logo">Workout Journal</span>
-        </nb-action>
-      </nb-actions>
-
-      <nb-actions>
-        <nb-action>
-              <nb-user shape="semi-round" name="John Doe" [nbContextMenu]="items"></nb-user>
-        </nb-action>
-      </nb-actions>
-    </div>
+    <wj-header class="w-100"></wj-header>
   </nb-layout-header>
 
   <nb-sidebar>
@@ -22,10 +9,14 @@
   </nb-sidebar>
 
   <nb-layout-column>
-    <router-outlet></router-outlet>
+    <nb-card [nbSpinner]="isContentLoading$ | async">
+      <nb-card-body>
+        <router-outlet></router-outlet>
+      </nb-card-body>
+    </nb-card>
   </nb-layout-column>
 
   <nb-layout-footer fixed>
-    Workout Journal by Michał Piotrowski
+    <wj-footer></wj-footer>
   </nb-layout-footer>
 </nb-layout>

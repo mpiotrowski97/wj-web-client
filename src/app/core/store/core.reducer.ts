@@ -4,16 +4,22 @@ import {
   addFailureNotificationAction,
   addNotificationAction,
   addSuccessNotificationAction,
-  removeNotificationAction
+  removeNotificationAction, setApplicationContentLoadingStatus, setApplicationErrorAction, setApplicationReadyAction
 } from './core.actions';
 import { NotificationType } from '../types/notification-type.enum';
 
 export interface CoreState {
   notifications: Notification[];
+  isApplicationError: boolean;
+  isApplicationReady: boolean;
+  isContentLoading: boolean;
 }
 
 const initialState: CoreState = {
-  notifications: []
+  notifications: [],
+  isApplicationError: false,
+  isApplicationReady: false,
+  isContentLoading: false,
 };
 
 export function coreReducer(state: CoreState | undefined, action: Action): CoreState {
@@ -33,7 +39,19 @@ export function coreReducer(state: CoreState | undefined, action: Action): CoreS
     })),
     on(removeNotificationAction, (currentState, {notification}) => ({
       ...currentState,
-      notifications: currentState.notifications.filter(storedNotification => storedNotification != notification)
+      notifications: currentState.notifications.filter(storedNotification => storedNotification !== notification)
+    })),
+    on(setApplicationErrorAction, (currentState) => ({
+      ...currentState,
+      isApplicationError: true
+    })),
+    on(setApplicationReadyAction, (currentState) => ({
+      ...currentState,
+      isApplicationReady: true
+    })),
+    on(setApplicationContentLoadingStatus, (currentState, {isLoading}) => ({
+      ...currentState,
+      isContentLoading: isLoading
     }))
   )(state, action);
 }
@@ -41,4 +59,19 @@ export function coreReducer(state: CoreState | undefined, action: Action): CoreS
 export const notificationsSelector = createSelector(
   (state: { core: CoreState }) => state.core,
   (state: CoreState) => state.notifications
+);
+
+export const applicationErrorSelector = createSelector(
+  (state: { core: CoreState }) => state.core,
+  (state: CoreState) => state.isApplicationError
+);
+
+export const applicationReadySelector = createSelector(
+  (state: { core: CoreState }) => state.core,
+  (state: CoreState) => state.isApplicationReady
+);
+
+export const applicationContentLoadingSelector = createSelector(
+  (state: { core: CoreState }) => state.core,
+  (state: CoreState) => state.isContentLoading
 );

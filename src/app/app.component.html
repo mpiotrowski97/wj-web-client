@@ -1,4 +1,13 @@
-<router-outlet>
-</router-outlet>
+<ng-container *ngIf="!(isReady$ | async); else elseBlock">
+  <wj-application-loader></wj-application-loader>
+</ng-container>
 
-<wj-notifications></wj-notifications>
+<ng-template #elseBlock>
+  <router-outlet>
+  </router-outlet>
+
+  <wj-notifications></wj-notifications>
+
+  <wj-application-error *ngIf="error$ | async">
+  </wj-application-error>
+</ng-template>

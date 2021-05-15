@@ -1,0 +1,4 @@
+<ng-container *ngIf="(exercise$ | async) as exercise;">
+  <wj-exercise-form [formHeader]="'Edit exercise'" [isFormProcessing]="isFormProcessing"
+                    (exerciseFormSubmit)="handleExerciseFormSubmit($event)" [exercise]="exercise"></wj-exercise-form>
+</ng-container>

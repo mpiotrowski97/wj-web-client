@@ -1,26 +1,24 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {HeaderComponent} from './components/header/header.component';
-import {RouterModule} from '@angular/router';
-import {RequiredMarkComponent} from './components/forms/required-mark/required-mark.component';
-import {NotificationsComponent} from './components/notifications/notifications.component';
-import {NotificationComponent} from './components/notification/notification.component';
-import {ApplicationErrorComponent} from './components/application-error/application-error.component';
-import {LoaderComponent} from './components/loader/loader.component';
-import {ApplicationLoaderComponent} from './components/application-loader/application-loader.component';
-import {AuthenticatedDirective} from './directives/authenticated.directive';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { RequiredMarkComponent } from './components/forms/required-mark/required-mark.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { ApplicationErrorComponent } from './components/application-error/application-error.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { ApplicationLoaderComponent } from './components/application-loader/application-loader.component';
+import { AuthenticatedDirective } from './directives/authenticated.directive';
 import { HasRoleDirective } from './directives/has-role.directive';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { SubnavComponent } from './components/subnav/subnav.component';
 import { UpperNavbarComponent } from './components/upper-navbar/upper-navbar.component';
-import { FooterComponent } from './components/footer/footer.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import { NbAlertModule } from '@nebular/theme';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NbAlertModule, NbButtonModule } from '@nebular/theme';
+import { RequiredLabelComponent } from './components/required-label/required-label.component';
 
 
 @NgModule({
   declarations: [
-    HeaderComponent,
     RequiredMarkComponent,
     NotificationsComponent,
     NotificationComponent,
@@ -32,10 +30,9 @@ import { NbAlertModule } from '@nebular/theme';
     PaginationComponent,
     SubnavComponent,
     UpperNavbarComponent,
-    FooterComponent,
+    RequiredLabelComponent,
   ],
   exports: [
-    HeaderComponent,
     RequiredMarkComponent,
     NotificationsComponent,
     ApplicationErrorComponent,
@@ -46,13 +43,14 @@ import { NbAlertModule } from '@nebular/theme';
     AuthenticatedDirective,
     HasRoleDirective,
     UpperNavbarComponent,
-    FooterComponent
+    RequiredLabelComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
-    NbAlertModule
+    NbAlertModule,
+    NbButtonModule
   ]
 })
 export class CoreModule {

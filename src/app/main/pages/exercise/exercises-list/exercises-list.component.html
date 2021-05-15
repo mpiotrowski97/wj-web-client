@@ -1,0 +1,14 @@
+<div class="row">
+  <ng-container *ngIf="exercises$ | async as exercises;">
+    <div *ngIf="exercises.length; else noItems" class="d-flex flex-row flex-wrap row">
+      <wj-exercise-card *ngFor="let exercise of exercises" [exercise]="exercise"
+                        (exerciseDelete)="handleExerciseDelete()" class="col-lg-3 col-md-6"></wj-exercise-card>
+
+    </div>
+    <ng-template #noItems>
+      <div class="text-center">
+        <h3>You have no exercises</h3>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>

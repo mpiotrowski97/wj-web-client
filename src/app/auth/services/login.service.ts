@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {LoginModelResponse} from '../../core/models/api-response';
-import {RegisterUserRequest} from '../../core/models/api-request';
+import {LoginModelResponse} from '../../core/models/api-specification';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +19,4 @@ export class LoginService {
     });
   }
 
-  register(registerRequest: RegisterUserRequest): Observable<any> {
-    return this.http.post('auth/register', registerRequest);
-  }
 }

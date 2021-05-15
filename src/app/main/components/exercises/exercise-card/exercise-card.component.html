@@ -1,0 +1,31 @@
+<nb-card accent="primary" size="small">
+  <nb-card-header>
+    <div class="d-flex justify-content-between">
+      <h4>
+        {{ exercise.name }}
+      </h4>
+      <div>
+        <a [routerLink]="['/', 'exercises', 'edit', exercise.id]" nbButton status="warning">
+          <nb-icon icon="edit-outline"></nb-icon>
+        </a>
+        <button nbButton status="danger" (click)="handleDeleteClick()">
+          <nb-icon icon="trash-outline"></nb-icon>
+        </button>
+      </div>
+
+    </div>
+  </nb-card-header>
+
+  <nb-card-body>
+    <div>
+      {{ exercise.description }}
+    </div>
+  </nb-card-body>
+
+  <nb-card-footer>
+    <nb-tag-list>
+      <nb-tag appearance="filled" status="primary" [text]="exercise.type"></nb-tag>
+      <nb-tag appearance="filled" status="primary" [text]="exercise.category"></nb-tag>
+    </nb-tag-list>
+  </nb-card-footer>
+</nb-card>

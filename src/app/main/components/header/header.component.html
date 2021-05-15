@@ -1,0 +1,15 @@
+<div class="header">
+  <nb-actions>
+    <nb-action icon="menu-2-outline" (click)="onMenuCollapseClick()"></nb-action>
+    <nb-action link="/">
+      <span class="logo">Workout Journal</span>
+    </nb-action>
+  </nb-actions>
+
+  <nb-actions>
+    <nb-action>
+      <nb-user shape="semi-round" [name]="userFullName" [nbContextMenu]="items"
+               nbContextMenuTag="user-context-menu"></nb-user>
+    </nb-action>
+  </nb-actions>
+</div>

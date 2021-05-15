@@ -1,0 +1,68 @@
+<form class="col-sm-6 offset-sm-3" (submit)="handleFormSubmit()" [formGroup]="exerciseForm">
+
+  <h3 class="mt-3 mb-3">
+    {{ formHeader }}
+  </h3>
+
+  <div class="form-group mt-3">
+    <label for="name" class="label"
+           [class.text-danger]="exerciseForm.get('name').invalid && exerciseForm.get('name').touched">Name
+      <wj-required-label></wj-required-label>
+    </label>
+    <input type="text" id="name" nbInput fullWidth formControlName="name"
+           [class.border-danger]="exerciseForm.get('name').invalid && exerciseForm.get('name').touched">
+    <div *ngIf="exerciseForm.get('name').hasError('required') && exerciseForm.get('name').touched" class="mt-2 mb-2">
+      <strong class="text-danger">Please enter a name</strong>
+    </div>
+  </div>
+
+  <div class="form-group mt-3">
+    <label for="description" class="label">Description</label>
+    <textarea nbInput fullWidth aria-label="description" id="description" formControlName="description"></textarea>
+  </div>
+
+  <div class="form-group mt-3">
+    <label for="videoUrl" class="label">Video url</label>
+    <input type="text" id="videoUrl" nbInput fullWidth formControlName="videoUrl">
+  </div>
+
+  <div class="form-group mt-3">
+    <label for="type" class="label"
+           [class.text-danger]="exerciseForm.get('type').invalid && exerciseForm.get('type').touched">Type
+      <wj-required-label></wj-required-label>
+    </label>
+    <nb-select id="type" fullWidth formControlName="type"
+               [status]="exerciseForm.get('type').invalid && exerciseForm.get('type').touched ? 'danger' : 'basic'">
+      <nb-option value="">Select...</nb-option>
+      <nb-option *ngFor="let type of types" [value]="type | uppercase">{{ type | titlecase }}</nb-option>
+    </nb-select>
+    <div *ngIf="exerciseForm.get('type').hasError('required') && exerciseForm.get('type').touched" class="mt-2 mb-2">
+      <strong class="text-danger">Please select a type</strong>
+    </div>
+  </div>
+
+  <div class="form-group mt-3">
+    <label for="category" class="label"
+           [class.text-danger]="exerciseForm.get('category').invalid && exerciseForm.get('category').touched">Category
+      <wj-required-label></wj-required-label>
+    </label>
+
+    <nb-select id="category" fullWidth formControlName="category"
+               [status]="exerciseForm.get('category').invalid && exerciseForm.get('category').touched ? 'danger' : 'basic'">
+      <nb-option value="">Select...</nb-option>
+      <nb-option *ngFor="let category of categories" [value]="category | uppercase">{{ category | titlecase }}</nb-option>
+
+    </nb-select>
+
+    <div *ngIf="exerciseForm.get('category').hasError('required') && exerciseForm.get('category').touched"
+         class="mt-2 mb-2">
+      <strong class="text-danger">Please select a type</strong>
+    </div>
+  </div>
+
+  <div class="form-group mt-3 ">
+    <button type="submit" nbButton [nbSpinner]="isFormProcessing" nbSpinnerStatus="basic" status="success"
+            [disabled]="exerciseForm.invalid">Save
+    </button>
+  </div>
+</form>
