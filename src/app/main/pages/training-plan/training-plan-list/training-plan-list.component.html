@@ -1,1 +1,13 @@
-<p>training-plan-list works!</p>
+<div>
+  <ng-container *ngIf="trainingPlans$ | async as trainingPlans;">
+    <div *ngIf="trainingPlans.length; else noItems" class="row">
+      <wj-training-plan-card *ngFor="let trainingPlan of trainingPlans" [trainingPlan]="trainingPlan" class="col-md-12">
+      </wj-training-plan-card>
+    </div>
+    <ng-template #noItems>
+      <div class="text-center">
+        <h3>You have no plans</h3>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>

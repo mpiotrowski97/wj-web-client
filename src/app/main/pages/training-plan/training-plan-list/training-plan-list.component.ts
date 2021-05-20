@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrainingPlanService } from '../../../services/training-plan.service';
 
 @Component({
   selector: 'wj-training-plan-list',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainingPlanListComponent implements OnInit {
 
-  constructor() { }
+  public trainingPlans$;
+
+  constructor(private trainingPlanService: TrainingPlanService) {
+  }
 
   ngOnInit(): void {
+    this.trainingPlans$ = this.trainingPlanService.allTrainingPlans();
   }
 
 }

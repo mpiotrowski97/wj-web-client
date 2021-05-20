@@ -27,7 +27,7 @@ export class TrainingPlanFormComponent implements OnInit {
     id: '',
     name: '',
     description: '',
-    days: [{id: '', trainingPlanId: '', exercisesIds: []}]
+    days: [{id: '', name: '', trainingPlanId: '', exercisesIds: []}]
   };
 
   @Input()
@@ -59,6 +59,7 @@ export class TrainingPlanFormComponent implements OnInit {
           {
             id: '',
             trainingPlanId: '',
+            name: '',
             exercisesIds: []
           }
         )
@@ -90,7 +91,8 @@ export class TrainingPlanFormComponent implements OnInit {
       {
         id: '',
         trainingPlanId: '',
-        exercisesIds: []
+        exercisesIds: [],
+        name: ''
       }
     ));
   }

@@ -1,0 +1,40 @@
+<div class="row">
+  <ng-container *ngIf="trainings$ | async as trainings;">
+    <div *ngIf="trainings.length; else noItems" class="row w-100">
+
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Date</th>
+            <th>Training plan</th>
+            <th>Day</th>
+            <th>&nbsp;</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let training of trainings">
+            <td>{{ training.date }}</td>
+            <td>
+              {{ training.trainingPlanName }}
+            </td>
+            <td>{{ training.trainingPlanDayName}}</td>
+            <td>
+              <a [routerLink]="training.id" nbButton>
+                Show
+              </a>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+    <ng-template #noItems>
+      <div class="text-center">
+        <h3>You have no trainings</h3>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>

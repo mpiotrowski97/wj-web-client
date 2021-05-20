@@ -21,15 +21,17 @@ import { CoreModule } from '../core/core.module';
 import { TrainingPlanFormComponent } from './components/training-plans/training-plan-form/training-plan-form.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import {HighchartsChartModule} from "highcharts-angular";
+import { TrainingPlanCardComponent } from './components/training-plans/training-plan-card/training-plan-card.component';
 
 
 @NgModule({
-  declarations: [MainComponent, SidebarComponent, HeaderComponent, FooterComponent, ExerciseCardComponent, ExerciseFormComponent, TrainingPlanFormComponent, DashboardComponent],
-  exports: [
-    ExerciseCardComponent,
-    ExerciseFormComponent,
-    TrainingPlanFormComponent
-  ],
+  declarations: [MainComponent, SidebarComponent, HeaderComponent, FooterComponent, ExerciseCardComponent, ExerciseFormComponent, TrainingPlanFormComponent, DashboardComponent, TrainingPlanCardComponent],
+    exports: [
+        ExerciseCardComponent,
+        ExerciseFormComponent,
+        TrainingPlanFormComponent,
+        TrainingPlanCardComponent
+    ],
     imports: [
         CommonModule,
         MainRoutingModule,

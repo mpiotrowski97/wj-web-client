@@ -45,7 +45,13 @@ export class SidebarComponent implements OnInit {
     },
     {
       title: 'Trainings',
-      icon: 'flash-outline'
+      icon: 'flash-outline',
+      children: [
+        {
+          title: 'My trainings',
+          link: 'trainings'
+        }
+      ]
     }
   ];
 

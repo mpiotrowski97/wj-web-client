@@ -24,7 +24,8 @@
       <textarea nbInput fullWidth aria-label="description" id="description" formControlName="description"></textarea>
     </div>
 
-    <div class="form-group mt-3" formArrayName="days" *ngFor="let day of trainingPlanForm.get('days')['controls']; index as i">
+    <div class="form-group mt-3" formArrayName="days"
+         *ngFor="let day of trainingPlanForm.get('days')['controls']; index as i">
       <div [formGroupName]="i">
         <label [for]="'day-' + i" class="label mb-2">Day {{ i + 1}}
           <button type="button" nbButton size="tiny" status="danger" (click)="handleRemoveDayClick(i)"
@@ -32,11 +33,20 @@
             <nb-icon icon="trash-2-outline"></nb-icon>
           </button>
         </label>
-        <nb-select fullWidth placeholder="Select Exercises" [id]="'day-' + i" multiple [formControlName]="'exercisesIds'">
-          <nb-option *ngFor="let exercise of exercises" [value]="exercise.id">
-            {{ exercise.name }}
-          </nb-option>
-        </nb-select>
+
+        <div class="form-group">
+          <label [for]="'day-name-' + i" class="label">Name</label>
+          <input type="text" [id]="'day-name-' + i" nbInput fullWidth formControlName="name">
+        </div>
+
+        <div class="form-group mt-3">
+          <nb-select fullWidth placeholder="Select Exercises" [id]="'day-' + i" multiple
+                     [formControlName]="'exercisesIds'">
+            <nb-option *ngFor="let exercise of exercises" [value]="exercise.id">
+              {{ exercise.name }}
+            </nb-option>
+          </nb-select>
+        </div>
       </div>
     </div>
 

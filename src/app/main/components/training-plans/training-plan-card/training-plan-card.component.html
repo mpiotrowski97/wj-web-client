@@ -1,0 +1,28 @@
+<nb-card accent="primary" size="small">
+  <nb-card-header>
+    <div class="d-flex justify-content-between">
+      <h4>
+        {{ trainingPlan.name }}
+      </h4>
+    </div>
+  </nb-card-header>
+
+  <nb-card-body>
+    <div>
+      <p>
+        {{ trainingPlan.description }}
+      </p>
+    </div>
+
+    <div>
+      <div *ngFor="let day of trainingPlan.days">
+        <h5>{{ day.name }}</h5>
+
+        <ul>
+          <li *ngFor="let exercise of day.exercises">{{ exercise.name }} ({{ exercise.category }})</li>
+        </ul>
+      </div>
+    </div>
+  </nb-card-body>
+
+</nb-card>

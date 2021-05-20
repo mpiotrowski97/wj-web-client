@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main.component';
 import { MainGuard } from './guards/main.guard';
-import {DashboardComponent} from "./pages/dashboard/dashboard.component";
+import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 
 const routes: Routes = [
   {
@@ -22,6 +22,10 @@ const routes: Routes = [
       {
         path: 'training-plans',
         loadChildren: () => import('./pages/training-plan/training-plan.module').then(m => m.TrainingPlanModule)
+      },
+      {
+        path: 'trainings',
+        loadChildren: () => import('./pages/training/training.module').then(m => m.TrainingModule)
       }
     ]
   }

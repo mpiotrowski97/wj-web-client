@@ -53,5 +53,46 @@ export interface TrainingPlanDto {
 export interface TrainingPlanDayDto {
   id: string;
   trainingPlanId: string;
+  name: string;
   exercisesIds: string[];
+}
+
+export interface TrainingPlanDetailsDto {
+  id: string;
+  name: string;
+  description: string;
+  days: TrainingPlanDayDetailsDto[];
+}
+
+export interface TrainingPlanDayDetailsDto {
+  id: string;
+  name: string;
+  exercises: ExerciseDto[];
+}
+
+export interface TrainingListItemDto {
+  id: string;
+  date: string;
+  trainingPlanName: string;
+  trainingPlanDayName: string;
+}
+
+export interface TrainingDetailsDto {
+  id: string;
+  date: string;
+  trainingPlanName: string;
+  trainingPlanDayName: string;
+  exercises: TrainingExerciseDto[];
+}
+
+export interface TrainingExerciseDto {
+  id: string;
+  name: string;
+  series: TrainingExerciseSeries[];
+}
+
+export interface TrainingExerciseSeries {
+  id: string;
+  repetition: number;
+  score: number;
 }

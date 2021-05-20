@@ -1,0 +1,55 @@
+<ng-container *ngIf="(training$ | async) as training;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Training details</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <strong>Training plan name</strong>
+      </div>
+
+      <div class="col-md-6">
+        {{ training.trainingPlanName}}
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <strong>Training day</strong>
+      </div>
+
+      <div class="col-md-6">
+        {{ training.trainingPlanDayName}}
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <strong>Date</strong>
+      </div>
+
+      <div class="col-md-6">
+        {{ training.date}}
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-4 p-3" *ngFor="let exercise of training.exercises">
+      <nb-card size="medium"  >
+        <nb-card-header>
+          {{ exercise.name }}
+        </nb-card-header>
+        <nb-list>
+          <nb-list-item *ngFor="let set of exercise.series">
+            Repetition: {{ set.repetition }}, Score: {{ set.score }} KG
+          </nb-list-item>
+        </nb-list>
+      </nb-card>
+      </div>
+    </div>
+
+  </div>
+</ng-container>
