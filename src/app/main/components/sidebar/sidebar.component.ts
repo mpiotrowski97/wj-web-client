@@ -50,6 +50,10 @@ export class SidebarComponent implements OnInit {
         {
           title: 'My trainings',
           link: 'trainings'
+        },
+        {
+          title: 'Add training',
+          link: 'trainings/create'
         }
       ]
     }

@@ -1,0 +1,28 @@
+<form class="col-sm-6 offset-sm-3" (submit)="handleFormSubmit()" [formGroup]="selectTrainingForm">
+
+  <h3 class="mt-3 mb-3">
+    Select training plan
+  </h3>
+
+  <div class="form-group mt-3">
+    <label for="type" class="label"
+           [class.text-danger]="selectTrainingForm.get('plan').invalid && selectTrainingForm.get('plan').touched">Plan
+      <wj-required-label></wj-required-label>
+    </label>
+    <nb-select id="type" fullWidth formControlName="plan"
+               [status]="selectTrainingForm.get('plan').invalid && selectTrainingForm.get('plan').touched ? 'danger' : 'basic'">
+      <nb-option value="">Select...</nb-option>
+      <nb-option *ngFor="let plan of trainingPlans$ | async" [value]="plan.id">{{ plan.name | titlecase }}</nb-option>
+    </nb-select>
+    <div *ngIf="selectTrainingForm.get('plan').hasError('required') && selectTrainingForm.get('plan').touched" class="mt-2 mb-2">
+      <strong class="text-danger">Please select a type</strong>
+    </div>
+  </div>
+
+  <div class="form-group mt-3 ">
+    <button type="submit" nbButton   status="success"
+            [disabled]="selectTrainingForm.invalid">Select
+    </button>
+  </div>
+
+</form>
